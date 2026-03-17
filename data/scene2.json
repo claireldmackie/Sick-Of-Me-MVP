@@ -1,0 +1,79 @@
+{
+    "id": "scene2",
+    "background": "assets/backgrounds/bg-2.png",
+    "nextScene": "data/scene3.json",
+    "closeupImage": "assets/characters/mom.png",
+    "initialState": {
+        "dark": true,
+        "darkOpacity": 0.55,
+        "tvGlow": { "x": 300, "y": 600, "radius": 500 }
+    },
+    "characters": [
+        {
+            "id": "hero",
+            "x": 250,
+            "y": 740,
+            "visible": true,
+            "interactive": false,
+            "zIndex": 1
+        },
+        {
+            "id": "parent",
+            "x": 1100,
+            "y": 960,
+            "visible": true,
+            "interactive": true,
+            "zIndex": 4,
+            "hitbox": { "x": 1200, "y": 460, "width": 420, "height": 500 }
+        }
+    ],
+    "objects": [
+        {
+            "id": "chair",
+            "image": "assets/objects/chair.png",
+            "x": 1160,
+            "y": 480,
+            "scale": 1.0,
+            "brightness": 0.4,
+            "interactive": false,
+            "zIndex": 3
+        },
+        {
+            "id": "lamp",
+            "image": "assets/objects/lamp.png",
+            "x": 840,
+            "y": 280,
+            "scale": 0.53,
+            "brightness": 0.4,
+            "interactive": true,
+            "zIndex": 0
+        },
+        {
+            "id": "door",
+            "type": "hotspot",
+            "x": 1100,
+            "y": 80,
+            "width": 200,
+            "height": 450,
+            "interactive": true
+        }
+    ],
+    "sequence": [
+        { "type": "waitForClick", "target": "parent" },
+        { "type": "dialogue", "speaker": "Hero", "text": "..." },
+        { "type": "closeup", "image": "assets/characters/mom.png" },
+        { "type": "closeupDialogue", "speaker": "Parent", "text": "zzzssnorhhhhh" },
+        { "type": "closeupDialogue", "speaker": "Hero", "text": "I didn't need to see that..." },
+        { "type": "hideCloseup" },
+        { "type": "dialogue", "speaker": "Unknown", "text": "*Thump thump*" },
+        { "type": "waitForClickBranch", "branches": {
+            "lamp": [
+                { "type": "dialogue", "speaker": "Hero", "text": "Hm, it's broken." },
+                { "type": "waitForClick", "target": "door" }
+            ],
+            "door": []
+        }},
+        { "type": "pause", "duration": 500 },
+        { "type": "transition" }
+    ]
+}

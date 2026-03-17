@@ -1,0 +1,43 @@
+{
+    "id": "scene13",
+    "background": "assets/backgrounds/bg-13.png",
+    "nextScene": "data/scene14.json",
+    "fadeDuration": 100,
+    "initialState": {},
+    "characters": [],
+    "objects": [
+        {
+            "id": "flower-in-bucket",
+            "image": "assets/objects/flower.png",
+            "x": 820,
+            "y": 595,
+            "scale": 0.14,
+            "filter": "brightness(1.15) sepia(0.08) hue-rotate(70deg) saturate(0.8)",
+            "interactive": false,
+            "zIndex": 2
+        },
+        {
+            "id": "flower-in-bucket-2",
+            "image": "assets/objects/flower.png",
+            "x": 870,
+            "y": 630,
+            "scale": 0.11,
+            "filter": "brightness(1.15) sepia(0.08) hue-rotate(70deg) saturate(0.8)",
+            "interactive": false,
+            "zIndex": 2
+        },
+        {
+            "id": "snack",
+            "type": "hotspot",
+            "x": 50,
+            "y": 200,
+            "width": 1050,
+            "height": 450,
+            "interactive": true
+        }
+    ],
+    "sequence": [
+        { "type": "waitForClick", "target": "snack" },
+        { "type": "transition" }
+    ]
+}
