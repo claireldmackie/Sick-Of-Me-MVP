@@ -102,6 +102,7 @@ class AudioManager {
 
     resume(duration = 3000) {
         if (!this.music || !this.playing) return;
+        if (!this.music.paused) return;
         this.music.volume = 0;
         this.music.play().catch(() => {});
         this._fadeToVolume(this.volume, duration);
